@@ -4,7 +4,7 @@
 ## Set a list of functions to get and set a matrix and get and set the inverse
 
 makeCacheMatrix <- function(x = matrix()) {
-  m <- NULL
+  m <- NULL #this is for caching the inverse
   set <- function(y) {
     x <<- y
     m <<- NULL
@@ -18,11 +18,11 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## Write a short comment describing this function
+## compute inverse of the matrix if 1) no cache 2) the new matrix not identical as the old one
 
 cacheSolve <- function(x, ...) {
   m <- x$getInver()
-  if(!is.null(m) & identical(x,m)) {
+  if(!is.null(m) & identical(x,m)) { #check criteria 1) & 2)
     message("getting cached data")
     return(m)
   }
